@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+
+  db:
+    container_name: my_database
+    image: postgres:10.14-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      # corrected the path below
+      - ./db/postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - backend  
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+
+  client:
+    container_name: client_container
+    image: todo-client
+    build:
+      context: ./todo-client
+    ports:
+      - "80:80"
+    networks:
+      - frontend
+    depends_on:
+      - api
+    #environment:
+    restart: always
+
+  api:
+    container_name: api_container
+    image: todo-api
+    build:
+      context: ./todo-api
+    ports:
+      - "3000:3000"
+    networks:
+      - backend
+    depends_on:
+      - db
+    environment:
+      # DB_HOST_NAME: host.docker.internal
+      DB_HOST_NAME: db
+    restart: always
+
+networks:
+  frontend:
+  backend:
+      
+volumes:
+  db-data:
+   
