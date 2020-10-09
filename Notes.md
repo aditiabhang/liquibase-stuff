@@ -42,5 +42,24 @@ Finally, I went over the following projects files to understand what every line 
 
 I was able to run the todo application on localhost, I cross checked data items entry in the postgress from my terminal. Everything was working good for this task. Screenshots attached below.
 
+------------------------------
 
+I had no prior experience working or hands-on knowledge of Terraform. So, just to get an idea of it I tried to learn something online by doing research on Terraform reading blogs on medium, stackoverflow and watching few YouTube videos. Unfortunately, I realised it cannot be learned in few hours. So I decided to deploy the app using AWS Console, manually on EC2 instance by setting up the RDS DB instance, defining security group, setting Elastic Load Balancer and launching the application.
+
+### Notes for Task 3: Deploying the application to EC2 instance
+
+> AWS RDS for database 
+
+For this task, I initally created a RDS Database. As the requirement was to allow access only from the EC2 instance, so I set the public accesibility of the RDS to **Publicly accessible** which will allow EC2 instances and devices outside the VPC tp can connect to the instance. Also allows to define the security groups for supported devices and instances.
+For Database authentication, I chose Password and IAM database authentication, that authenticates using the database password and user credentials through AWS IAM users and roles.
+I selected the **Postgres logs** as export log types, that will publish the logs to Amazon CloudWatch Logs.
+Rest, kept everything default to stay under free tier.
+
+> Security group
+
+As per the requiments, I created a new security group with default vpc and the rules for inbound and outbound. Inbound rule set to Postgres type post 5342 to source anywhere. Outbound rule to HTTP type post 80.
+
+> Launch EC2 Instance
+
+I launched an Amazon Linux 2 AMI (HVM), SSD Volume Type Intance, by creating a new IAM user with the permission policy of EC2FullAccess, CodeCommitFullAccess, CodeDeployFullAccess, RDSPowerUserAccess. Rest everything set factors that come under free tier. 
 
