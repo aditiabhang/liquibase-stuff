@@ -63,4 +63,4 @@ As per the requiments, I created a new security group with default vpc and the r
 
 I launched an Amazon Linux 2 AMI (HVM), SSD Volume Type Intance, by creating a new IAM user with the permission policy of EC2FullAccess, CodeCommitFullAccess, CodeDeployFullAccess, RDSPowerUserAccess. Rest everything set factors that come under free tier. 
 
-==PS== I have deployed a simple Dockerized application on EC2 instance by using the AWS CodeCommit, CodeDeploy and CodeBuild. Given, the assignment consists of docker compose, it is taking time for me to learn and implement the required settings.
+`PS:` I have deployed a simple Dockerized application on EC2 instance by using the AWS CodeCommit, CodeDeploy and CodeBuild. Given, the assignment consists of docker compose, it is taking time for me to learn and implement the required settings.
