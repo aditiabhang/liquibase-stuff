@@ -46,7 +46,7 @@ I was able to run the todo application on localhost, I cross checked data items 
 
 I had no prior experience working or hands-on knowledge of Terraform. So, just to get an idea of it I tried to learn something online by doing research on Terraform reading blogs on medium, stackoverflow and watching few YouTube videos. Unfortunately, I realised it cannot be learned in few hours. So I decided to deploy the app using AWS Console, manually on EC2 instance by setting up the RDS DB instance, defining security group, setting Elastic Load Balancer and launching the application.
 
-### Notes for Task 3: Deploying the application to EC2 instance
+### Notes for Task 1, 3 & 4: AWS Deployment settings (Elastic Load Balancer & EC2 instance), security groups and AWS RDS database connection for production environment.
 
 > AWS RDS for database 
 
